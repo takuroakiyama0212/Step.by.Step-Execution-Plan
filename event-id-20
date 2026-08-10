@@ -7,3 +7,22 @@
 **Type:** Web Attack
 **Event ID:** 120
 **MITRE ATT&CK:** T1190
+
+###Hypothesis:
+An external threat actor is attempting a Local File Inclusion (LFI) / Path Traversal attack to read sensitive Linux system configuration files (`/etc/passwd`) on web server `172.16.17.13`.
+
+###Evidence
+- **Primary IOC:** 106.55.45.162
+- **Malicious Payload:** GET request with directory traversal (`../../../../etc/passwd`)
+
+###Classification Decision
+**True Positive (Malicious)** - comfirmed path traversal attack vector originating from an external public IP address targeting a public-facing web server.
+
+###Summary of Findings
+An external host (`106.55.45.162`) submitted an HTTP GET request containing relative path traversal indicators (`../../../../`) aiming to retrieve the Linux `/etc/passwd` configuration file from host `WebServer1006` (`172.16.17.13`). Security controls logged the event as allowed.
+
+###Recommended Actions
+**Perimeter Level:** Block external IP `106.55.45.162` at the Web Application Firewall (WAF) / Firewall.
+**Endpoint Level:** Isolate host `WebServer1006` (`172.16.17.13`) to verify via web logs if any file contents were successfully returned (check for HTTP 200 responses with non-zero payload length).
+**Application Level:** Patch the web application's `file` URL parameter to enforce input validation and strip relative path characters (`../`).
+
