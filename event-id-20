@@ -2,7 +2,7 @@
 
 **Alert Title:** SOC170 - Passwd Found in Requested URL - Possible LFI Attack
 **Severity:** High
-**Souce IP:** 106.55.45.162
+**Source IP:** 106.55.45.162
 **Destination IP:** 172.16.17.13
 **Type:** Web Attack
 **Event ID:** 120
