@@ -1,1 +1,31 @@
+##Alert #2
+**Date** 2021-06-13T14:13:28+03:00
+**Event ID:** 93
+**Alert Title:** SOC146 - PhishingMail Detected - Excel 4.0 Macros
+**Severity:** High
+**Type:** Exchange
+**MITRE ATT&CK:** T1566
+
+**Header Telemetry:**
+- **Sender Address(`From`):** trenton@tritowncomputers.com
+- **Return-Path:** Same as From (trenton@tritowncomputers.com)
+- **SMTP Gateway IP:** 24.213.228.54
+- **Destination Email:** lars@letsdefend.io
+- ** Attachment Hash(MD5):** 11f44531fb088d31307d87b01e8eabff
+- ** Email Subject:** RE: Meeting Notes
+
+###Hypothesis
+A threat actor is attempting a phishing attack targeting an internal user lars@letsdefend.io
+
+###Evidence
+- **Email Subject:** RE: Meeting Notes(Using reply-chain baiting to build trust)
+- **Delibery Status:** Allowed(Delibery directly to the target inbox)
+
+###Summary of Findings
+
+
+###Recommended Actions
+
+
+
 
