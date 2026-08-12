@@ -16,7 +16,7 @@ An external threat actor is attempting a Local File Inclusion (LFI) / Path Trave
 - **Malicious Payload:** GET request with directory traversal (`../../../../etc/passwd`)
 
 ###Classification Decision
-**True Positive (Malicious)** - comfirmed path traversal attack vector originating from an external public IP address targeting a public-facing web server.
+**True Positive (Malicious)** - confirmed path traversal attack vector originating from an external public IP address targeting a public-facing web server.
 
 ###Summary of Findings
 An external host (`106.55.45.162`) submitted an HTTP GET request containing relative path traversal indicators (`../../../../`) aiming to retrieve the Linux `/etc/passwd` configuration file from host `WebServer1006` (`172.16.17.13`). Security controls logged the event as allowed.
