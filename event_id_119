@@ -10,7 +10,7 @@
 **MITRE ATT&CK:** T1190
 
 ###Hypothesis:
-An external threat actor(134.209.118.137) is attempting a IDOR attack against WebServer1005(172.16.17.15) to access unauthorized data by submitting consecutive POST requests with manipulated parameters (?user_id=5) to /get_user_info/ in order to access unauthorized user data.
+An external threat actor(134.209.118.137) is attempting an IDOR attack against WebServer1005(172.16.17.15) to access unauthorized data by submitting consecutive POST requests with manipulated parameters (?user_id=5) to /get_user_info/ in order to access unauthorized user data.
 
 ###Evidence:
 **Requested URL:** https://172.16.17.15/get_user_info/
