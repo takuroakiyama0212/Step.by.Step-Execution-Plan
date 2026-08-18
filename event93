@@ -22,10 +22,13 @@ A threat actor is attempting a phishing attack targeting an internal user lars@l
 - **Delibery Status:** Allowed(Delibery directly to the target inbox)
 
 ###Summary of Findings
-
+An inbound email was received from external SMTP server 24.213.228.54 (trenton@tritowncomputers.com) targeting lars@letsdefend.io. 
+The email bypassed initial gateway blocks and delivered a password-protected/compressed archive containing an Excel document with embedded Excel 4.0 Macros.
 
 ###Recommended Actions
-
+Host Isolation / Remediation: Search Endpoint Security logs for host assigned to lars@letsdefend.io to check if the attachment was executed; isolate the workstation if macro execution occurred.
+Email Containment: Immediately purge/quarantine the email with subject "RE: Meeting Notes" from lars@letsdefend.io's mailbox.
+Block Indicators: Add sender IP (24.213.228.54), domain (tritowncomputers.com), and file hash (11f44531fb088d31307d87b01e8eabff) to the mail gateway and EDR blocklists.
 
 
 
