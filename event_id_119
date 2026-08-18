@@ -1,0 +1,30 @@
+###Alert #3
+
+**Alert Title:** SOC169 - Possible IDOR Attack Detected
+**Date:** 2022-02-28T22:48:05+03:00
+**Severity:** Medium
+**Source IP:** 134.209.118.137
+**Destination IP:** 172.16.17.15
+**Type:** Web Attack	
+**Event ID:** 119
+**MITRE ATT&CK:** T1190
+
+###Hypothesis:
+An external threat actor(134.209.118.137) is attempting a IDOR attack against WebServer1005(172.16.17.15) to access unauthorized data by submitting consecutive POST requests with manipulated parameters (?user_id=5) to /get_user_info/ in order to access unauthorized user data.
+
+###Evidence:
+**Requested URL:** https://172.16.17.15/get_user_info/
+**POST Parameters:** ?user_id=5
+
+###Classification Decision:
+**True Positive(Malicious):** Confirmed Web Attack from Source IP(134.209.118.137) against Destination IP(172.16.17.15). Server returned 200 OK with sensitive payload data, confirming successful exploitation. 
+
+###Summery of Findings:
+An alert (SOC169 - Possible IDOR Attack) was triggered when external IP 134.209.118.137 targeted WebServer1005 (172.16.17.15). 
+Inspection of raw logs confirms 134.209.118.137 sent POST requests to /get_user_info/ while changing the ?user_id=5 parameter. 
+The target server processed the request and responded with HTTP 200 OK (267 bytes), confirming unauthorized user data was leaked.
+
+###Recommended Actions
+Perimeter Containment: Add external source IP 134.209.118.137 to WAF and perimeter firewall blocklists.
+Asset Scoping: Search Log Management for all traffic from 134.209.118.137 to identify all user IDs accessed during the session.
+Remediation: Notify web application developers to enforce object-level authorization checks on the /get_user_info/ API endpoint.
