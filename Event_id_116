@@ -1,0 +1,44 @@
+###Alert #3
+
+**Alert Title:** SOC166 - Javascript Code Detected in Requested URL
+**Date:** 2022-02-26T18:56:46+03:00
+**Severity:** Medium
+**Source IP:** 112.85.42.13
+**Destination IP:** 172.16.17.17
+**Type:** Web Attack
+**Event ID:** 116
+**MITRE ATT&CK:** T1190
+
+###Hypothesis:
+An external threat actor(112.85.42.13) attempted to inject malicious JavaScript code into a web application parameter on WebServer1002(172.16.17.17) to execute to unauthorized client-side code.
+
+###Evidence:
+Alert Contxt: Triggered for "JavaScript Code Detected in Requested URL" on 2022-02-26T18:56:46+03:00
+
+Network Details:
+- Source IP (Attacker): 112.85.42.13
+- Destination IP (Target): 172.16.17.17 (WebServer1002)
+- Destination Port: 443 (HTTPS)
+
+HTTP Transaction Specifics:
+- Request Method: GET
+- Injected Payload: https://172.16.17.17/search/?q=<$script>javascript:$alert(1)<$/script>
+- HTTP Response Status: 302 Found
+- HTTP Response Size: 0
+
+
+###Classification Decision:
+True Positive. Confirmed web attack (XSS) attempt from Source IP 112.85.42.13 against Destination IP 172.16.17.17 (WebServer1002). The server returned HTTP 302 (Found), indicating the application redirected the request and mitigated direct payload execution. Recommended action: Block source IP on the perimeter firewall/WAF.
+
+###Summery of Findings:
+An alert(SOC166 - Javascript Code Detected in Requested URL) was triggered when external IP(112.85.4213) targeted WebServer1002 (172.16.17.17).
+Inspection of raw logs shows the attacker attempted Web Attack(XSS) by sending a GET request to https://172.16.17.17/search/ with <$script>javascript:$alert(1)<$/script>.
+The target server responded with HTTP 302 (Found), confirming the request was redirected and the attack was mitigated.
+
+###Recommended Actions 
+1. Immediate Containment:
+  - Block external attacker IP 112.85.42.13 at the perimeter firewall and WAF.
+2. Scoping & Investgation:
+  - Query Log Management for all HTTP traffic from 112.85.42.13 over the last 24 hours to check if other endpoints or assets were targeted.
+3. System Remediation:
+  - Notify web development team to sanitize input parameters on the /search/ endpoint to prevent XSS payloads from rendering.
