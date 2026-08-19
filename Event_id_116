@@ -13,7 +13,7 @@
 An external threat actor(112.85.42.13) attempted to inject malicious JavaScript code into a web application parameter on WebServer1002(172.16.17.17) to execute to unauthorized client-side code.
 
 ###Evidence:
-Alert Contxt: Triggered for "JavaScript Code Detected in Requested URL" on 2022-02-26T18:56:46+03:00
+Alert Context: Triggered for "JavaScript Code Detected in Requested URL" on 2022-02-26T18:56:46+03:00
 
 Network Details:
 - Source IP (Attacker): 112.85.42.13
