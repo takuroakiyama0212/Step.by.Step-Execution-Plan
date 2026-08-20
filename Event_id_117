@@ -1,0 +1,26 @@
+###Alert #7
+
+**Alert Title:** SOC167 - LS Command Detected in Requested URL
+**Date:** 2022-02-27T00:36:04+03:00
+**Severity:** High
+**Source IP:** 172.16.17.46
+**Destination IP:** 188.114.96.15
+**Type:** Web Attack
+**Event ID:** 117
+**MITRE ATT&CK:** T1190
+
+###Hypothesis:
+An internal threat actor(172.16.17.46) is attempting a web attack(LS Command) against EliotPRD(188.114.96.15) to list all the files and folders inside a compromised server directory.
+
+###Evidence :
+- Requested URL : https://letsdefend.io/blog/?s=skills
+- Alert Trigger Reason : URL Contains LS
+- HTTP Response Status: 200
+
+According to above information, 
+
+###Classification Decision:
+
+###Summary of Findings:
+
+###Recommended Actions 
