@@ -21,7 +21,7 @@ An external threat actor(61.177.172.87) is attempting a Web Attack(Whoami Comman
 According to the above information, it can be assumed that a Whoami Command was attempted.
 
 ###Classification Decision:
-True Positive(Successful Attempt). Confirmed Web Attack(Whoami Command) attempt from Source IP 61.177.172.87 against Destination IP 172.16.17.16 (WebServer1004). The server returned 200, indicating the server recieved the 
+True Positive(Successful Attempt). Confirmed Web Attack(Whoami Command) attempt from Source IP 61.177.172.87 against Destination IP 172.16.17.16 (WebServer1004). The server returned 200, indicating the server received the 
 
 ###Summary of Findings:
 An alert(SOC168 - Whoami Command Detected in Request Body) was triggered when external IP(61.177.172.87) targeted WebServer1004(172.16.17.16).
