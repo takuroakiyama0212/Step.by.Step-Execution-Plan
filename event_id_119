@@ -19,7 +19,7 @@ An external threat actor(134.209.118.137) is attempting an IDOR attack against W
 ###Classification Decision:
 **True Positive(Malicious):** Confirmed Web Attack from Source IP(134.209.118.137) against Destination IP(172.16.17.15). Server returned 200 OK with sensitive payload data, confirming successful exploitation. 
 
-###Summery of Findings:
+###Summary of Findings:
 An alert (SOC169 - Possible IDOR Attack) was triggered when external IP 134.209.118.137 targeted WebServer1005 (172.16.17.15). 
 Inspection of raw logs confirms 134.209.118.137 sent POST requests to /get_user_info/ while changing the ?user_id=5 parameter. 
 The target server processed the request and responded with HTTP 200 OK (267 bytes), confirming unauthorized user data was leaked.
