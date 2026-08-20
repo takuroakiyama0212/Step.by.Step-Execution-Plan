@@ -9,9 +9,8 @@
 **Event ID:** 115
 **MITRE ATT&CK:** T1190
 
-###Hypothesis:
-
-###Evidence:
+###Hypothesis
+An external attacker used SQL injection 
 
 
 
