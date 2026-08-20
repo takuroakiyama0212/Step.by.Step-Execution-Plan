@@ -38,7 +38,7 @@ The target server responded with HTTP 302 (Found), confirming the request was re
 ###Recommended Actions 
 1. Immediate Containment:
   - Block external attacker IP 112.85.42.13 at the perimeter firewall and WAF.
-2. Scoping & Investgation:
+2. Scoping & Investigation:
   - Query Log Management for all HTTP traffic from 112.85.42.13 over the last 24 hours to check if other endpoints or assets were targeted.
 3. System Remediation:
   - Notify web development team to sanitize input parameters on the /search/ endpoint to prevent XSS payloads from rendering.
