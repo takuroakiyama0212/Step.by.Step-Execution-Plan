@@ -30,7 +30,7 @@ HTTP Transaction Specifics:
 ###Classification Decision:
 True Positive. Confirmed web attack (XSS) attempt from Source IP 112.85.42.13 against Destination IP 172.16.17.17 (WebServer1002). The server returned HTTP 302 (Found), indicating the application redirected the request and mitigated direct payload execution. Recommended action: Block source IP on the perimeter firewall/WAF.
 
-###Summery of Findings:
+###Summary of Findings:
 An alert(SOC166 - Javascript Code Detected in Requested URL) was triggered when external IP(112.85.4213) targeted WebServer1002 (172.16.17.17).
 Inspection of raw logs shows the attacker attempted Web Attack(XSS) by sending a GET request to https://172.16.17.17/search/ with <$script>javascript:$alert(1)<$/script>.
 The target server responded with HTTP 302 (Found), confirming the request was redirected and the attack was mitigated.
