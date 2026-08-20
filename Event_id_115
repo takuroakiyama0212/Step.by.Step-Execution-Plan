@@ -14,8 +14,6 @@ An external unauthenticated attacker used SQL injection to trick an application 
 
 ###Evidence : 
 Based on the Request URL, the HTTP Response Status 500, the alert triger reason involving the payload " OR 1=1 -- -, it can be assumed that a SQL Injection was attempted.
-=!
-
 
 HTTP Transaction Specifics:
 - Request Method: GET
