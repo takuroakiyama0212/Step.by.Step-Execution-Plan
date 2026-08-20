@@ -28,7 +28,7 @@ True Positive(Failed Attempt). Confirmed Web Attack(SQL Injection) attempt from 
 
 ###Summery of Findings:
 An alert(SOC165 - Possible SQL Injection Payload Detected) was triggered when external IP(167.99.169.17) targeted WebServer1001(172.16.17.18).
-Inspection of raw logs shows the attacker attempted Web Attack(SQL Injection) by sending a GET request containing " OR 1=! -- - to the /search/ endpoint.
+Inspection of raw logs shows the attacker attempted Web Attack(SQL Injection) by sending a GET request containing " OR 1=1 -- - to the /search/ endpoint.
 The target server responded with HTTP 500 Internal Server Error, confirming the backend query crashed and the attack failed.
 
 ###Recommended Actions 
