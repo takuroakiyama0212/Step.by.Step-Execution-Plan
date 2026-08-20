@@ -1,0 +1,21 @@
+###Alert #6
+
+**Alert Title:** SOC168 - Whoami Command Detected in Request Body
+**Date:** 2022-02-28T04:12:45+03:00
+**Severity:** High
+**Source IP:** 61.177.172.87
+**Destination IP:** 172.16.17.16
+**Type:** Web Attack
+**Event ID:** 118
+**MITRE ATT&CK:** T1190
+
+###Hypothesis:
+An external threat actor(61.177.172.87) is attempting a Web Attack(Whoami Command) against WebServer1004(172.16.17.16) after braking into user's system to review wheather user have low level rights or high level admin/root power to look for vulnerabilities to escalate privileges or start stealing data, creating backdoors, or wiping logs. 
+
+###Evidence : 
+
+###Classification Decision: 
+
+###Summery of Findings:
+
+###Recommended Actions 
