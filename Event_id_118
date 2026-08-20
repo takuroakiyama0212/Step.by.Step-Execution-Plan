@@ -18,10 +18,16 @@ An external threat actor(61.177.172.87) is attempting a Web Attack(Whoami Comman
 - HTTP Response Status: 200
 - Alert Trigger Reason : Request Body Contains whoami string
 
-According to the above information, 
+According to the above information, it can be assumed that a Whoami Command was attempted.
 
-###Classification Decision: 
+###Classification Decision:
+True Positive(Successful Attempt). Confirmed Web Attack(Whoami Command) attempt from Source IP 61.177.172.87 against Destination IP 172.16.17.16 (WebServer1004). The server returned 200, indicating the server recieved the 
 
 ###Summary of Findings:
-
+An alert(SOC168 - Whoami Command Detected in Request Body) was triggered when external IP(61.177.172.87) targeted WebServer1004(172.16.17.16).
+Inspection of ras logs shows the attacker attempted Web Attack(Whoami Command) by sending a POST request containing whoami string to the /video/ endpoint.
+The target server responded with HTTP 200, confirming the 
 ###Recommended Actions 
+A successful command injection exploit was detected on the company server.
+The external attacker executed a whoami command, which returned an HTTP 200 success status.
+The affected system was immediately isolated to mitigate further network exposure.
