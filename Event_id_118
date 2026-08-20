@@ -16,7 +16,7 @@ An external threat actor(61.177.172.87) is attempting a Web Attack(Whoami Comman
 - Request Method: POST
 - POST Parameters: ?c=whoami
 - HTTP Response Status: 200
-- Alert Trigger Reason : Request Body Contains whoami string
+- Alert Trigger Reason: Request Body Contains whoami string
 
 According to the above information, it can be assumed that a Whoami Command was attempted.
 
