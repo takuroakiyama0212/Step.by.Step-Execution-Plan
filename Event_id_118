@@ -12,10 +12,16 @@
 ###Hypothesis:
 An external threat actor(61.177.172.87) is attempting a Web Attack(Whoami Command) against WebServer1004(172.16.17.16) after braking into user's system to review wheather user have low level rights or high level admin/root power to look for vulnerabilities to escalate privileges or start stealing data, creating backdoors, or wiping logs. 
 
-###Evidence : 
+###Evidence :
+- Request Method: POST
+- POST Parameters: ?c=whoami
+- HTTP Response Status: 200
+- Alert Trigger Reason : Request Body Contains whoami string
+
+According to the above information, 
 
 ###Classification Decision: 
 
-###Summery of Findings:
+###Summary of Findings:
 
 ###Recommended Actions 
