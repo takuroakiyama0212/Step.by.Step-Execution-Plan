@@ -27,7 +27,7 @@ True Positive(Successful Attempt). Confirmed Web Attack(Whoami Command) attempt 
 
 ###Summary of Findings:
 An alert(SOC168 - Whoami Command Detected in Request Body) was triggered when external IP(61.177.172.87) targeted WebServer1004(172.16.17.16).
-Inspection of ras logs shows the attacker attempted Web Attack(Whoami Command) by sending a POST request containing whoami string to the /video/ endpoint.
+Inspection of raw logs shows the attacker attempted Web Attack(Whoami Command) by sending a POST request containing whoami string to the /video/ endpoint.
 The target server responded with HTTP 200, confirming the request was the attacker that gains critical system knowledge and immediately prepares to take full control of the server. 
 
 ###Recommended Actions 
