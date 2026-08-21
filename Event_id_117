@@ -13,14 +13,33 @@
 An internal threat actor(172.16.17.46) is attempting a web attack(LS Command) against EliotPRD(188.114.96.15) to list all the files and folders inside a compromised server directory.
 
 ###Evidence :
+- Request Method: GET
+- Target Endpoint: /blog/
 - Requested URL : https://letsdefend.io/blog/?s=skills
-- Alert Trigger Reason : URL Contains LS
-- HTTP Response Status: 200
-
-According to above information, 
+- Query Parameter: s=skills
+- HTTP Response Status: 200 OK
+- Alert Trigger Reason : URL Contains "LS" (Triggered by substring match inside "skills") 
 
 ###Classification Decision:
+True Positive(Successful Attempt). Confirmed Web Attack(LS Command) attempt from source IP 172.16.17.46 against Destination IP 188.114.96.15(EliotPRD). The server returned 200 OK, indicating the server received a successful command injection which the attacker lists  all the files and folders inside a compromised server directry. 
 
 ###Summary of Findings:
+An alert(SOC167 - LS Command Detected in Requested URL) was triggered when internal IP(172.16.17.46) targeted EliotPRD(188.114.96.15).
+Inspection of ran logs shows the attacker attempted Web Attack(LS Command) by sending a GET request containing Ls strings to the /blog/ endpoint.
+The target server responded with HTTP 200 OK, confirming the request was the attacker that lists all the files and folders inside a compromised server directory.
 
 ###Recommended Actions 
+
+1. Immediate Containment
+
+Deploy / Configure a Web Application Firewall (WAF): Apply WAF rules immediately to inspect incoming HTTP requests and block signatures matching command injection syntax (e.g., ;, &&, whoami, cat) targeting the /video/ endpoint.
+
+2. Scoping & Investigation
+
+Audit System & Service Logs: Inspect host OS access and system logs to verify if the web application service account executed unauthorized binaries or attempted lateral movement.
+
+3. Long-Term Remediation
+
+Fix the Code Flaw (Input Validation & Parameterization): Direct the web development team to sanitize and validate all input parameters on the endpoint. Avoid using dangerous system execution functions (such as PHP's exec(), system(), or passthru()) and enforce strict allowlists.
+
+Restrict OS Permissions (Principle of Least Privilege): Reconfigure the web server process (e.g., www-data or apache) to run under a restricted low-privilege user account. Disable command-line binaries (/bin/sh, /bin/bash, cmd.exe) from being invoked by the web server process.
