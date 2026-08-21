@@ -14,8 +14,8 @@ An external threat actor(61.177.172.87) is attempting a Web Attack(Whoami Comman
 
 ###Evidence :
 - Request Method: POST
-- Target Endpoint: /blog/
-- Full Requested URL: https://letsdefend.io/blog/?s=skills
+- Target Endpoint: /video/
+- Full Requested URL: https://172.16.17.16/video/
 - POST Parameters: ?c=whoami
 - HTTP Response Status: 200 OK
 - Alert Trigger Reason: Request Body Contains "whoami" string
