@@ -12,15 +12,15 @@
 An internal user(ellie / 172.16.17.49) navigated to a suspicious URL hosted on a compromised external web serever(91.189.114.8) via proxy, indicating potential exposure to a credential harvesting phishing campaign.
 
 ###Evidence :
-- Destination Hostname : mogagrocol.ru
+- Destination Hostname: mogagrocol.ru
 - Full Requested URL: http://mogagrocol.ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend.io
   The main domain(ogagrocol.ru) belongs to a legitimate agricultural college website in Russia that was hacked.
-- Hidden Fake Folder : The path /wp-content/plugins/akismet/fv/index.php shows that attackers hid a malicious script inside a legitimate WordPress plugin folder(akismet). The unknown /fv/ directory was manually created by the attackers to host a fake login screen.
+- Hidden Fake Folder: The path /wp-content/plugins/akismet/fv/index.php shows that attackers hid a malicious script inside a legitimate WordPress plugin folder(akismet). The unknown /fv/ directory was manually created by the attackers to host a fake login screen.
 
 ###Classification Decision:
 True Positive (User Clicked). Confirmed phishing URL navigation by internal user ellie(172.16.17.49). Proxy logs confirm the request was allowed, verifying the user clicked the link and established a connection to the external phishing server.
 
-###Summary of Findings:_
+###Summary of Findings:
 An alert (SOC141 - Phishing URL Detected) was triggered when internal host EmilyComp (172.16.17.49, user ellie) requested a known phishing URL on external host mogagrocol.ru (91.189.114.8).
 Analysis confirms the link contained a tailored query parameter (?email=ellie@letsdefend.io) pointing to a hidden directory on a compromised WordPress site. The proxy action was allowed, confirming user interaction.
 
